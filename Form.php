@@ -65,4 +65,18 @@ abstract class Form {
      * 
      */
     abstract protected function nacionalidades();
+    
+    
+    
+    
+    abstract protected function modificar();
+    
+    
+    
+    
+    abstract protected function registrar();
+    
+    
+    
+    abstract protected function eliminar();
 }

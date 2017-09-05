@@ -27,7 +27,7 @@
                         <td></td>
                     </tr>
 
-                    <?php foreach ($results as $value) : ?>
+                    <?php foreach ($clientes as $value) : ?>
                         <tr>
                             <td><?php echo $value['nombre']; ?></td>
                             <td><?php echo $value['edad']; ?></td>

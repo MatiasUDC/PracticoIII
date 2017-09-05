@@ -18,53 +18,58 @@
                         <div class="form-group">
                             <legend>Modificar Cliente</legend> 
                             <form method="post" form method="post" action="Modificacion.php" id="formulario">
-                                <?php if ($form->tieneErrores()): ?>
+                                <?php if ($cliente->tieneErrores()): ?>
                                     <div class="alert alert-danger">
                                         Se encontraron errores al procesar el formulario.
                                     </div>
                                 <?php endif; ?>
-                                <?php $tiene_error = $form->tieneError('nombre') ? "has-error" : ""; ?>
+                                <?php $tiene_error = $cliente->tieneError('nombre') ? "has-error" : ""; ?>
                                 <div class="form-group <?php echo $tiene_error; ?>">
                                     <label for="nombre">Ingrese su Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $form->getValor("nombre"); ?>" placeholder="Ingrese su Nombre">
-                                    <span class="alert-danger"><?php echo $form->getError('nombre'); ?></span>
+                                    <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $datos["nombre"]; ?>" placeholder="Ingrese su Nombre">
+                                    <span class="alert-danger"><?php echo $cliente->getError('nombre'); ?></span>
                                 </div>
                                 <br>
                                 <?php $tiene_error = $form->tieneError('apellido') ? "has-error" : ""; ?>
                                 <div class="form-group <?php echo $tiene_error; ?>">
                                     <label for="apellido">Ingrese su Apellido</label>
-                                    <input name="apellido" type="text" class="form-control" id="apellido" value="<?php echo $form->getValor("apellido"); ?>" placeholder="Ingrese su Apellido">
-                                    <span class="alert-danger"><?php echo $form->getError('apellido'); ?></span>
+                                    <input name="apellido" type="text" class="form-control" id="apellido" value="<?php echo $datos["apellido"]; ?>" placeholder="Ingrese su Apellido">
+                                    <span class="alert-danger"><?php echo $cliente->getError('apellido'); ?></span>
                                 </div>
                                 <br>
-                                <?php $tiene_error = $form->tieneError('activo') ? "has-error" : ""; ?>
+                                <?php $tiene_error = $cliente->tieneError('activo') ? "has-error" : ""; ?>
                                 <div class="form-group <?php echo $tiene_error; ?>" >
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="activo" id="activo" value="1" <?php echo $form->getChecked('activo'); ?>>
+                                            <input type="checkbox" name="activo" id="activo" value="1" <?php echo $cliente->getChecked('activo'); ?>>
                                             Vigente
                                         </label>
                                     </div>
                                     <br>
-                                    <!--<?php $tiene_error = $form->tieneError('fecha') ? "has-error" : ""; ?>-->
+                                    <!--<?php $tiene_error = $cliente->tieneError('fecha') ? "has-error" : ""; ?>-->
                                     <div class="form-group <?php echo $tiene_error; ?>">
                                         <label for="Formulario">Ingrese Fecha de Nacimiento</label>
                                         <div class='input-group date' id='fecha'>
-                                            <input id="fecha" name="fecha" type="date" value="<?php echo $form->getValor("fecha"); ?>">
+                                            <input id="fecha" name="fecha" type="date" value="<?php echo $datos["fecha"]; ?>">
                                         </div>
-                                        <span class="alert-danger"><?php echo $form->getError('fecha'); ?></span>
+                                        <span class="alert-danger"><?php echo $cliente->getError('fecha'); ?></span>
                                     </div>
                                     <br>
-                                    <?php $tiene_error = $form->tieneError('localidad') ? "has-error" : ""; ?>
+                                    <?php $tiene_error = $cliente->tieneError('localidad') ? "has-error" : ""; ?>
                                     <div class="form-group <?php echo $tiene_error; ?>">
                                         <label class="control-label" for="localidad">Localidad</label>
                                         <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" name="localidad" id="localidad">
-                                            <option value=""></option> 
-                                            <?php foreach ($form->localidad as $key => $item): ?>
-                                                <option value="<?php echo $key; ?>" <?php echo $form->getSelected('localidad', $key); ?>><?php echo $item; ?></option> 
-                                            <?php endforeach; ?>
+                                            <optgroup>
+                                                <option value="<?php echo $datos["nacionalidad_id"]; ?>"><?php echo $datos["nacionalidad"]; ?></option>>
+                                            </optgroup> 
+                                            <optgroup label="-------------------------------------">
+                                                <?php foreach ($cliente->localidad as $item): ?>
+                                                    <option value="<?php echo $item['id']; ?>" <?php echo $cliente->getSelected('localidad', $item["id"]); ?>><?php echo $item["nacionalidad"]; ?></option> 
+                                                <?php endforeach; ?>
+                                            </optgroup>
+                                           
                                         </select>
-                                        <span class="alert-danger"><?php echo $form->getError('localidad'); ?></span>
+                                        <span class="alert-danger"><?php echo $cliente->getError('localidad'); ?></span>
                                     </div>
                                     <br>
                                     <br>
