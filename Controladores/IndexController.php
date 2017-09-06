@@ -10,7 +10,7 @@ class IndexController {
         $this->clientes = $this->GetClientes();
     }
 
-    protected function GetClientes() {
+    public function GetClientes() {
         try {
             $pdo = getConnection();
             //sql
@@ -31,7 +31,10 @@ class IndexController {
 
             //recuperamos los datos de el array asoc.
             $resultado = $stmt->fetchAll();
+            
             return $resultado;
+        
+            
         } catch (PDOException $ex) {
             echo "Error de conexion de la DB: " . $ex->getMessage();
         }

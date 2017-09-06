@@ -41,8 +41,11 @@ class ClienteForm extends Form {
     public function procesar($arreglo_datos) {
         $this->rellenarCon($arreglo_datos);
         $this->validar();
-        $this->Registrar();
 
+        
+        if(empty($this->errores)){
+           $this->Registrar();
+        }
         return empty($this->errores);
     }
 
@@ -192,7 +195,7 @@ class ClienteForm extends Form {
         }
     }
 
-    protected function eliminar() {
+    public function eliminar($campo) {
         
     }
 

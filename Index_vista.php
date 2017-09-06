@@ -35,9 +35,11 @@
                                 <td><input type="checkbox" class="checkbox" name="activo" checked disabled></td>
                             <?php else : ?>
                                 <td><input type="checkbox"class="checkbox" name="activo" disabled></td>
-                                <?php endif; ?>
+                            <?php endif; ?>
                             <td><?php echo $value['nacionalidad']; ?></td>
+
                             <td><a class="btn btn-primary" href="Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
+                            <td><a class="btn btn-danger" href="Baja/baja.php?id=<?php echo $value['id'] ?>">Baja</a></td>
                         </tr>
                     <?php endforeach; ?>
 
@@ -45,7 +47,7 @@
             </div>
         </div>
     </div>
-
+    <?php require 'bibliotecas/Footer.php'; ?>
 
 
 </body>

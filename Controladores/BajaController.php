@@ -4,7 +4,7 @@ require '../Form.php';
 require_once __DIR__ . '/../bibliotecas/conexion.php';
 class BajaController extends Form {
     
-    
+ 
     
     
     public function eliminar($campo) {
@@ -26,6 +26,7 @@ class BajaController extends Form {
             //ejecutamos la consulta
             $stmt->execute();
             
+            return true;
         } catch (PDOException $ex) {
             echo "Error de conexion de la DB: " . $ex->getMessage();
         }

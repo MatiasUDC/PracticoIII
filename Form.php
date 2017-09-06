@@ -78,5 +78,5 @@ abstract class Form {
     
     
     
-    abstract protected function eliminar();
+    abstract public function eliminar($campo);
 }

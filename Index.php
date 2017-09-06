@@ -1,6 +1,6 @@
 <?php
 require_once './Controladores/IndexController.php';
 
-$clientes = new IndexController();
-
+$cliente = new IndexController();
+$clientes  = $cliente->GetClientes(); 
 require_once 'Index_Vista.php';
