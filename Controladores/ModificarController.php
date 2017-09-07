@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../bibliotecas/conexion.php';
-require '../Form.php';
+require '../Modelo/Form.php';
 
 class ModificarController extends Form {
 
@@ -23,13 +23,18 @@ class ModificarController extends Form {
 
     protected function modificar() {
         $campos = $this->valores;
+        //die(var_dump($campos));
         try {
-
+            if ($this->getChecked("activo")== "checked") {
+                $campos["activo"] = 1;
+            } else {
+                $campos["activo"] = 0;
+            }
             $pdo = getConnection();
             //sql
             $sql = "UPDATE clientes SET apellido=:apellido,"
                     . " nombre=:nombre, fecha_nacimiento=:fecha,"
-                    . "activo=1, nacionalidad_id=:nacionalidad "
+                    . "activo=:activo, nacionalidad_id=:nacionalidad "
                     . "WHERE id = :id";
 
             $stmt = $pdo->prepare($sql);
@@ -78,6 +83,10 @@ class ModificarController extends Form {
         } catch (PDOException $ex) {
             echo "Error de conexion de la DB: " . $ex->getMessage();
         }
+    }
+
+    protected function Checkar($campo, $arreglo) {
+        
     }
 
     protected function nacionalidades() {
@@ -162,12 +171,7 @@ class ModificarController extends Form {
     }
 
     protected function procesarCheck($campo) {
-
-        if ($this->getChecked($campo)) {
-            $this->$valores["activo"] = 1;
-        } else {
-            $this->$valores["activo"] = 0;
-        }
+        
     }
 
     protected function procesarNombre($campo) {

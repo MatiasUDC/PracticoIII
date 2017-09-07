@@ -40,7 +40,7 @@
                             <td><?php echo $value['nacionalidad']; ?></td>
 
                             <td><a class="btn btn-primary" href="Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
-                            <td><div><a class="btn btn-danger" href="#portfolioModal1" data-toggle="modal">Baja</a></div></td>
+                            <td><div><a class="btn btn-danger" href="Baja/baja.php?id=<?php echo $value['id'] ?>" >Baja</a></div></td>
                         </tr>
                     <?php endforeach; ?>
 

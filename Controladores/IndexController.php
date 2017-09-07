@@ -18,7 +18,7 @@ class IndexController {
                     . "clientes.id, "
                     . "CONCAT(clientes.apellido, ', ' , clientes.nombre) as nombre, "
                     . "TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) as edad, "
-                    . "clientes.activo , nacionalidades.nacionalidad "
+                    . "clientes.activo as activo , nacionalidades.nacionalidad "
                     . "FROM clientes JOIN nacionalidades "
                     . "on  clientes.nacionalidad_id = nacionalidades.id";
             $stmt = $pdo->prepare($sql);

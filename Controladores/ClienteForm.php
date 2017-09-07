@@ -1,6 +1,6 @@
 <?php
 
-require '../Form.php';
+require '../Modelo/Form.php';
 require_once __DIR__ . '/../bibliotecas/conexion.php';
 
 class ClienteForm extends Form {
@@ -42,9 +42,9 @@ class ClienteForm extends Form {
         $this->rellenarCon($arreglo_datos);
         $this->validar();
 
-        
-        if(empty($this->errores)){
-           $this->Registrar();
+
+        if (empty($this->errores)) {
+            $this->Registrar();
         }
         return empty($this->errores);
     }
@@ -68,7 +68,6 @@ class ClienteForm extends Form {
         $this->procesarApellido('apellido');
         $this->procesarFecha('fecha');
         $this->procesarLocalidad('localidad');
-        $this->procesarCheck('activo');
     }
 
     protected function nacionalidades() {
@@ -114,13 +113,6 @@ class ClienteForm extends Form {
         }
         if (!ctype_alpha($nombre)) {
             $this->setError($campo, "El nombre no puede contener numeros");
-        }
-    }
-    protected function procesarCheck($campo){
-        if($this->getChecked($campo)){
-            $this->$valores["activo"]=1;
-        } else {
-            $this->$valores["activo"]=0;
         }
     }
 
@@ -175,13 +167,13 @@ class ClienteForm extends Form {
 
     protected function Registrar() {
         $campos = $this->valores;
-        
-        if($this->getChecked($campos["activo"])){
-            $campos["activo"]=1;
+
+        if ($this->getChecked("activo") == "checked") {
+            $campos["activo"] = 1;
         } else {
-            $campos["activo"]=0;
+            $campos["activo"] = 0;
         }
-        
+
         try {
             $pdo = getConnection();
             $sql = "INSERT INTO "

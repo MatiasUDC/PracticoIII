@@ -1,6 +1,6 @@
 <?php
 
-require '../Form.php';
+require '../Modelo/Form.php';
 require_once __DIR__ . '/../bibliotecas/conexion.php';
 class BajaController extends Form {
     
