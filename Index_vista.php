@@ -13,7 +13,7 @@
     <!-- Portfolio Grid Section -->
     <div class="container">
         <div class="row ">
-            
+
             <div class="col-md-4"><legend>Clientes</legend></div><br>
             <div class="col-md-4"><a class="btn btn-dark" href="Alta\alta.php">Nuevo Cliente</a></div>
             <br><br><br>
@@ -40,7 +40,7 @@
                             <td><?php echo $value['nacionalidad']; ?></td>
 
                             <td><a class="btn btn-primary" href="Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
-                            <td><a class="btn btn-danger" href="Baja/baja.php?id=<?php echo $value['id'] ?>">Baja</a></td>
+                            <td><div><a class="btn btn-danger" href="#portfolioModal1" data-toggle="modal">Baja</a></div></td>
                         </tr>
                     <?php endforeach; ?>
 
@@ -51,9 +51,9 @@
     <br>
     <br>
     <br>
-    
-    
-    
+
+
+
     <?php require 'bibliotecas/Footer.php'; ?>
 
 
