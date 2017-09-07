@@ -57,7 +57,7 @@
                                     <br>
                                     <?php $tiene_error = $form->tieneError('localidad') ? "has-error" : ""; ?>
                                     <div class="form-group <?php echo $tiene_error; ?>">
-                                        <label class="control-label" for="localidad">Localidad</label>
+                                        <label class="control-label" for="localidad">Nacionalidad</label>
                                         <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" name="localidad" id="localidad">
                                             <option value=""></option> 
                                             <?php foreach ($form->localidad as $item): ?>

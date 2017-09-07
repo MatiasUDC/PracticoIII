@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../bibliotecas/conexion.php';
 require '../Form.php';
 
 class ModificarController extends Form {
@@ -16,14 +17,14 @@ class ModificarController extends Form {
         
     }
 
-    protected function eliminar() {
+    public function eliminar($campo) {
         
     }
 
     protected function modificar() {
         $campos = $this->valores;
         try {
-            
+
             $pdo = getConnection();
             //sql
             $sql = "UPDATE clientes SET apellido=:apellido,"
@@ -36,29 +37,27 @@ class ModificarController extends Form {
             //especid¿ficamos la salida como un array
             $stmt->setFetchMode(PDO::FETCH_ASSOC); //podria ser PDO::FETCH_OBJ
             //sustituir los parametros por los valores reales
-            $stmt->bindParam(':id', $valores["id"]);
-            $stmt->bindParam(':apellido', $valores["apellido"]);
-            $stmt->bindParam(':nombre', $valores["nombre"]);
+            $stmt->bindParam(':id', $campos["id"]);
+            $stmt->bindParam(':apellido', $campos["apellido"]);
+            $stmt->bindParam(':nombre', $campos["nombre"]);
             $stmt->bindParam(':fecha', str_replace('/', '-', $campos["fecha"]));
-            //$stmt->bindParam(':activo', $valores["activo"]);
-            $stmt->bindParam(':nacionalidad', $valores["localidad"]);
+            //$stmt->bindParam(':activo', $campos["activo"]);
+            $stmt->bindParam(':nacionalidad', $campos["localidad"]);
 
             //ejecutamos la consulta
             $stmt->execute();
 
-            //redirigimos a index
-            header('Location: ../index.php');
         } catch (PDOException $ex) {
             echo "Error de conexion de la DB: " . $ex->getMessage();
         }
     }
 
-    protected function getCliente($campo) {
-        $id_cliente = $this->getValor($campo);
+    public function getCliente($campo) {
+        $id_cliente = $campo;
         try {
             $pdo = getConnection();
             //sql
-            $sql = "SELECT c.id,c.apellido as apellido,c.nombre as nombre,c.fecha_nacimiento ,c.activo as activo,"
+            $sql = "SELECT c.id as id,c.apellido as apellido,c.nombre as nombre,c.fecha_nacimiento as fecha,c.activo as activo,"
                     . "c.nacionalidad_id as nacionalidad_id, n.nacionalidad "
                     . "FROM clientes c JOIN nacionalidades n "
                     . "ON c.nacionalidad_id = n.id "
@@ -132,7 +131,11 @@ class ModificarController extends Form {
     public function procesar($arreglo_datos) {
         $this->rellenarCon($arreglo_datos);
         $this->validar();
-        $this->modificar();
+
+        if (empty($this->errores)) {
+            $this->modificar();
+        }
+
 
         return empty($this->errores);
     }

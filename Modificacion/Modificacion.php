@@ -1,14 +1,13 @@
 <?php
 
-require_once __DIR__ . '/../bibliotecas/conexion.php';
-require_once __DIR__ . '/../ClienteForm.php';
+require_once __DIR__ . '/../Controladores/ModificarController.php';
 $cliente = new ModificarController();
-if (empty($_POST)) {
+if (!empty($_GET)) {
 
     $id_cliente = $_GET['id'];
-
+    
     $datos = $cliente->getCliente($id_cliente);
-
+    
 
     require_once __DIR__ . '/Modificacion_vista.php';
 }

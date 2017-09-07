@@ -17,23 +17,27 @@
                     <div class="container">
                         <div class="form-group">
                             <legend>Modificar Cliente</legend> 
-                            <form method="post" form method="post" action="Modificacion.php" id="formulario">
+                            <form method="post" action="Modificacion.php">
                                 <?php if ($cliente->tieneErrores()): ?>
                                     <div class="alert alert-danger">
                                         Se encontraron errores al procesar el formulario.
                                     </div>
                                 <?php endif; ?>
+                                <div class="contact_form">
+                                    <input type="hidden" name="id" value="<?php echo $datos["id"] ?>">    
+                                </div>
+
                                 <?php $tiene_error = $cliente->tieneError('nombre') ? "has-error" : ""; ?>
                                 <div class="form-group <?php echo $tiene_error; ?>">
                                     <label for="nombre">Ingrese su Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $datos["nombre"]; ?>" placeholder="Ingrese su Nombre">
+                                    <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $datos["apellido"]; ?>" placeholder="Ingrese su Nombre">
                                     <span class="alert-danger"><?php echo $cliente->getError('nombre'); ?></span>
                                 </div>
                                 <br>
-                                <?php $tiene_error = $form->tieneError('apellido') ? "has-error" : ""; ?>
+                                <?php $tiene_error = $cliente->tieneError('apellido') ? "has-error" : ""; ?>
                                 <div class="form-group <?php echo $tiene_error; ?>">
                                     <label for="apellido">Ingrese su Apellido</label>
-                                    <input name="apellido" type="text" class="form-control" id="apellido" value="<?php echo $datos["apellido"]; ?>" placeholder="Ingrese su Apellido">
+                                    <input name="apellido" type="text" class="form-control" id="apellido" value="<?php echo $datos["nombre"]; ?>" placeholder="Ingrese su Apellido">
                                     <span class="alert-danger"><?php echo $cliente->getError('apellido'); ?></span>
                                 </div>
                                 <br>
@@ -57,7 +61,7 @@
                                     <br>
                                     <?php $tiene_error = $cliente->tieneError('localidad') ? "has-error" : ""; ?>
                                     <div class="form-group <?php echo $tiene_error; ?>">
-                                        <label class="control-label" for="localidad">Localidad</label>
+                                        <label class="control-label" for="localidad">Nacionalidad</label>
                                         <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" name="localidad" id="localidad">
                                             <optgroup>
                                                 <option value="<?php echo $datos["nacionalidad_id"]; ?>"><?php echo $datos["nacionalidad"]; ?></option>>
@@ -67,7 +71,7 @@
                                                     <option value="<?php echo $item['id']; ?>" <?php echo $cliente->getSelected('localidad', $item["id"]); ?>><?php echo $item["nacionalidad"]; ?></option> 
                                                 <?php endforeach; ?>
                                             </optgroup>
-                                           
+
                                         </select>
                                         <span class="alert-danger"><?php echo $cliente->getError('localidad'); ?></span>
                                     </div>
