@@ -68,6 +68,7 @@ class ClienteForm extends Form {
         $this->procesarApellido('apellido');
         $this->procesarFecha('fecha');
         $this->procesarLocalidad('localidad');
+        $this->procesarCheck('activo');
     }
 
     protected function nacionalidades() {
@@ -113,6 +114,13 @@ class ClienteForm extends Form {
         }
         if (!ctype_alpha($nombre)) {
             $this->setError($campo, "El nombre no puede contener numeros");
+        }
+    }
+    protected function procesarCheck($campo){
+        if($this->getChecked($campo)){
+            $this->$valores["activo"]=1;
+        } else {
+            $this->$valores["activo"]=0;
         }
     }
 
@@ -167,13 +175,20 @@ class ClienteForm extends Form {
 
     protected function Registrar() {
         $campos = $this->valores;
+        
+        if($this->getChecked($campos["activo"])){
+            $campos["activo"]=1;
+        } else {
+            $campos["activo"]=0;
+        }
+        
         try {
             $pdo = getConnection();
             $sql = "INSERT INTO "
                     . "clientes"
                     . "(apellido,nombre,fecha_nacimiento,activo,nacionalidad_id)"
                     . "VALUES"
-                    . "(:apellido,:nombre,:fecha , 1, :nacionalidad)";
+                    . "(:apellido,:nombre,:fecha ,:activo,:nacionalidad)";
 
 
             $stmt = $pdo->prepare($sql);
@@ -184,7 +199,7 @@ class ClienteForm extends Form {
             $stmt->bindParam(':apellido', $campos["nombre"]);
             $stmt->bindParam(':nombre', $campos["apellido"]);
             $stmt->bindParam(':fecha', str_replace('/', '-', $campos["fecha"]));
-            //$stmt->bindParam(':activo', 1);
+            $stmt->bindParam(':activo', $campos["activo"]);
             $stmt->bindParam(':nacionalidad', $campos["localidad"]);
 
 

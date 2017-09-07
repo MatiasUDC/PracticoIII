@@ -41,12 +41,11 @@ class ModificarController extends Form {
             $stmt->bindParam(':apellido', $campos["apellido"]);
             $stmt->bindParam(':nombre', $campos["nombre"]);
             $stmt->bindParam(':fecha', str_replace('/', '-', $campos["fecha"]));
-            //$stmt->bindParam(':activo', $campos["activo"]);
+            $stmt->bindParam(':activo', $campos["activo"]);
             $stmt->bindParam(':nacionalidad', $campos["localidad"]);
 
             //ejecutamos la consulta
             $stmt->execute();
-
         } catch (PDOException $ex) {
             echo "Error de conexion de la DB: " . $ex->getMessage();
         }
@@ -159,6 +158,16 @@ class ModificarController extends Form {
         $this->procesarApellido('apellido');
         $this->procesarFecha('fecha');
         $this->procesarLocalidad('localidad');
+        $this->procesarCheck('activo');
+    }
+
+    protected function procesarCheck($campo) {
+
+        if ($this->getChecked($campo)) {
+            $this->$valores["activo"] = 1;
+        } else {
+            $this->$valores["activo"] = 0;
+        }
     }
 
     protected function procesarNombre($campo) {

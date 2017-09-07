@@ -13,9 +13,10 @@
     <!-- Portfolio Grid Section -->
     <div class="container">
         <div class="row ">
+            
             <div class="col-md-4"><legend>Clientes</legend></div><br>
             <div class="col-md-4"><a class="btn btn-dark" href="Alta\alta.php">Nuevo Cliente</a></div>
-            <br><br>
+            <br><br><br>
             <div class="form-control">
                 <table class="table">
                     <tr>
