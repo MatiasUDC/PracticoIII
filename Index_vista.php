@@ -15,7 +15,7 @@
         <div class="row ">
 
             <div class="col-md-4"><legend>Clientes</legend></div><br>
-            <div class="col-md-4"><a class="btn btn-dark" href="Alta\alta.php">Nuevo Cliente</a></div>
+            <div class="col-md-4"><a class="btn btn-dark" href="Vistas/Alta/alta.php">Nuevo Cliente</a></div>
             <br><br><br>
             <div class="form-control">
                 <table class="table">
@@ -39,8 +39,8 @@
                             <?php endif; ?>
                             <td><?php echo $value['nacionalidad']; ?></td>
 
-                            <td><a class="btn btn-primary" href="Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
-                            <td><div><a class="btn btn-danger" href="Baja/baja.php?id=<?php echo $value['id'] ?>" >Baja</a></div></td>
+                            <td><a class="btn btn-primary" href="Vistas/Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
+                            <td><div><a class="btn btn-danger" href="Vistas/Baja/baja.php?id=<?php echo $value['id'] ?>" >Baja</a></div></td>
                         </tr>
                     <?php endforeach; ?>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?php require_once __DIR__ . '/../bibliotecas/Cabecera.php'; ?>
+    <?php require_once __DIR__ . '/../../bibliotecas/Cabecera.php'; ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </section>
-    <?php require_once __DIR__ . '/../bibliotecas/Footer.php'; ?>
+<?php require_once __DIR__ . '/../../bibliotecas/Footer.php'; ?>
 
 
 

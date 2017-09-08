@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Controladores/ModificarController.php';
+require_once __DIR__ . '/../../Controladores/ModificarController.php';
 $cliente = new ModificarController();
 if (!empty($_GET)) {
 
@@ -13,7 +13,7 @@ if (!empty($_GET)) {
 }
 if (!empty($_POST)) { //venimos por post?
     if ($cliente->procesar($_POST)) { //procesó OK?
-        header("Location: ../Index.php"); //redirect
+        header("Location: ../../Index.php"); //redirect
         die();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../bibliotecas/conexion.php';
-require '../Modelo/Form.php';
+require __DIR__ . '/../Modelo/Form.php';
 
 class ModificarController extends Form {
 
@@ -25,7 +25,7 @@ class ModificarController extends Form {
         $campos = $this->valores;
         //die(var_dump($campos));
         try {
-            if ($this->getChecked("activo")== "checked") {
+            if ($this->getChecked("activo") == "checked") {
                 $campos["activo"] = 1;
             } else {
                 $campos["activo"] = 0;
