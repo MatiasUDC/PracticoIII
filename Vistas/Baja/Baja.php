@@ -1,6 +1,7 @@
 <?php
-
+require_once '../../Login/Control_Session.php';
 require_once __DIR__ . '/../../Controladores/BajaController.php';
+
 $baja = new BajaController();
 
 if (!empty($_GET)) { //venimos por get?

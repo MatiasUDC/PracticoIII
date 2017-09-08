@@ -1,6 +1,7 @@
 <?php
-	require_once '../../Controladores/ClienteForm.php';
-
+    require_once '../../Login/Control_Session.php';	
+    require_once '../../Controladores/ClienteForm.php';
+        
 	
 	$form = new ClienteForm();
 	

@@ -1,5 +1,5 @@
 <?php
-
+require_once '../../Login/Control_Session.php';
 require_once __DIR__ . '/../../Controladores/ModificarController.php';
 $cliente = new ModificarController();
 if (!empty($_GET)) {

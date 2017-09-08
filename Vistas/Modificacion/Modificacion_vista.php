@@ -2,13 +2,6 @@
 <html>
     <?php require_once __DIR__ . '/../../bibliotecas/Cabecera.php'; ?>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="../Index.php">Trabajo Practico</a>
-        </div>
-    </nav>
-
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div align="text-center" class="container">

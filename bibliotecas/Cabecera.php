@@ -37,3 +37,21 @@
 
 </head>
 <body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/PracticoIII/Index.php">Trabajo Practico</a>
+
+                <?php if (isset($_SESSION["logueado"])): ?>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="/PracticoIII/Login/Cerrar_Session.php">Cerrar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </nav>
+    </div>

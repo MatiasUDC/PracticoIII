@@ -3,13 +3,6 @@
 
     <?php require 'bibliotecas/Cabecera.php'; ?>
 
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="Index.php">Trabajo Practico</a>
-            </div>
-        </nav>
-    </div>
     <!-- Portfolio Grid Section -->
     <div class="container">
         <div class="row ">
