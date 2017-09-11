@@ -49,7 +49,37 @@ class LoginController extends Form {
     }
 
     protected function registrar() {
-        
+        $campos = $this->valores;
+
+        try {
+            $pdo = getConnection();
+            $sql = "INSERT INTO "
+                    . "usuario"
+                    . "(usuario,password)"
+                    . "VALUES"
+                    . "(:usuario,:password)";
+
+
+            $stmt = $pdo->prepare($sql);
+
+            //especid¿ficamos la salida como un array
+            $stmt->setFetchMode(PDO::FETCH_ASSOC); //podria ser PDO::FETCH_OBJ
+            //sustituir los parametros por los valores reales
+            $stmt->bindParam(':usuario', $campos["usuario"]);
+            $stmt->bindParam(':password', $campos["contrasenia"]);
+            
+
+            //ejecutamos la consulta
+            if ($stmt->execute()==true){
+                return true;
+            } else {
+                return false;
+            }
+            
+            
+        } catch (PDOException $ex) {
+            echo "Error de conexion de la DB: " . $ex->getMessage();
+        }
     }
 
     protected function rellenarCon($arreglo_datos) {
@@ -57,7 +87,11 @@ class LoginController extends Form {
             $this->valores[$k] = $v;
         }
     }
-
+    protected function validarRegistro() {
+        $this->ProcesarPassRepe("contraseniaa");
+        $this->ProcesarPass("contrasenia");
+        $this->ProcesarUsuario("usuario");
+    }
     protected function validar() {
         $this->ProcesarPass("contrasenia");
         $this->ProcesarUsuario("usuario");
@@ -98,7 +132,16 @@ class LoginController extends Form {
     public function tieneValor($campo) {
         return !empty($this->valores[$campo]);
     }
+    public function procesarRegistro($arreglo_datos) {
+        $this->rellenarCon($arreglo_datos);
+        $this->validarRegistro();
 
+        if (empty($this->errores)) {
+            return $this->registrar($arreglo_datos);
+            
+        }
+        return empty($this->errores);
+    }
     public function procesar($arreglo_datos) {
         $this->rellenarCon($arreglo_datos);
         $this->validar();
@@ -121,6 +164,19 @@ class LoginController extends Form {
         $pass = $this->getValor($campo);
         if (strlen($pass) == 0) {
             $this->setError($campo, "La contraseña es requerido");
+        }
+        if ($pass != $this->getValor('contrasenia')) {
+            $this->setError($campo, "Las contraseñas deben coincidir");
+        }
+    }
+
+    public function ProcesarPassRepe($campo) {
+        $pass = $this->getValor($campo);
+        if (strlen($pass) == 0) {
+            $this->setError($campo, "La contraseña es requerido");
+        }
+        if ($pass != $this->getValor('contrasenia')) {
+            $this->setError($campo, "Las contraseñas deben coincidir");
         }
     }
 

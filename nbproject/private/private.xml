@@ -5,9 +5,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/PracticoIII/Login/Denegado.php</file>
             <file>file:/C:/xampp/htdocs/PracticoIII/Login/Login_Vista.php</file>
-            <file>file:/C:/xampp/htdocs/PracticoIII/Login/Cerrar_Session.php</file>
-            <file>file:/C:/xampp/htdocs/PracticoIII/Login/Login.php</file>
-            <file>file:/C:/xampp/htdocs/PracticoIII/Login/Control_Session.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/bibliotecas/Cabecera.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/Index_vista.php</file>
         </group>
     </open-files>
 </project-private>
