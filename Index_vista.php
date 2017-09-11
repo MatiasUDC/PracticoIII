@@ -33,7 +33,7 @@
                             <td><?php echo $value['nacionalidad']; ?></td>
 
                             <td><a class="btn btn-primary" href="Vistas/Modificacion/modificacion.php?id=<?php echo $value['id'] ?>">Modificar</a></td>
-                            <td><div><a class="btn btn-danger" href="Vistas/Baja/baja.php?id=<?php echo $value['id'] ?>" >Baja</a></div></td>
+                            <td><a onclick="javascript:return confirm('¿Seguro que quiere eliminar a <?php echo $value["nombre"]?>?');" href="Vistas/Baja/baja.php?id=<?php echo $value["id"]?>"><button class="btn btn-danger">Borrar</button></a></td>
                         </tr>
                     <?php endforeach; ?>
 
