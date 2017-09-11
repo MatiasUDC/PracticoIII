@@ -19,7 +19,7 @@
                             <?php $tiene_error = $usuario->tieneError('usuario') ? "has-error" : ""; ?>
                             <div class="form-group <?php echo $tiene_error; ?>">
                                 <label for="usuario">Ingrese el Usuario</label>
-                                <input name="usuario" type="text" class="form-control" id="usuario" placeholder="Ingrese el Usuario">
+                                <input name="usuario" type="text" class="form-control" value="<?php echo $usuario->getValor("usuario"); ?>" id="usuario" placeholder="Ingrese el Usuario">
                                 <span class="alert-danger"><?php echo $usuario->getError('usuario'); ?></span>
                             </div>
                             <br>

@@ -8,5 +8,5 @@
     
     session_destroy();
     //redireccion al index
-    header("Location: Login.php");
+    header("Location: ../Vistas/Login/Login.php");
 

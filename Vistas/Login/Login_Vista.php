@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?php require_once '../bibliotecas/Cabecera.php'; ?>
+    <?php require_once '../../bibliotecas/Cabecera.php'; ?>
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div align="text-center" class="container">
@@ -17,7 +17,7 @@
                         <?php $tiene_error = $usuario->tieneError('usuario') ? "has-error" : ""; ?>
                         <div class="form-group <?php echo $tiene_error; ?>">
                             <label for="usuario">Ingrese el Usuario</label>
-                            <input name="usuario" type="text" class="form-control" id="usuario" placeholder="Ingrese el Usuario">
+                            <input name="usuario" type="text" class="form-control" value="<?php echo $usuario->getValor("usuario"); ?>" id="usuario" placeholder="Ingrese el Usuario">
                             <span class="alert-danger"><?php echo $usuario->getError('usuario'); ?></span>
                         </div>
                         <br>
@@ -38,7 +38,7 @@
             </div>     
         </div>
     </section>
-    <?php require_once '../bibliotecas/Footer.php'; ?>
+    <?php require_once '../../bibliotecas/Footer.php'; ?>
 
 
 

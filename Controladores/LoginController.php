@@ -163,17 +163,14 @@ class LoginController extends Form {
     protected function ProcesarPass($campo) {
         $pass = $this->getValor($campo);
         if (strlen($pass) == 0) {
-            $this->setError($campo, "La contraseña es requerido");
-        }
-        if ($pass != $this->getValor('contrasenia')) {
-            $this->setError($campo, "Las contraseñas deben coincidir");
+            $this->setError($campo, "La contraseña es requerida");
         }
     }
 
     public function ProcesarPassRepe($campo) {
         $pass = $this->getValor($campo);
         if (strlen($pass) == 0) {
-            $this->setError($campo, "La contraseña es requerido");
+            $this->setError($campo, "La contraseña es requerida");
         }
         if ($pass != $this->getValor('contrasenia')) {
             $this->setError($campo, "Las contraseñas deben coincidir");
