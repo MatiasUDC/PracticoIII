@@ -6,6 +6,7 @@
     <div align="text-center" class="container">
         <div class="row ">
             <div>
+                
                 <div class="container">
                     <div class="form-group">
                         <legend>Registrar Usuario</legend>
@@ -39,11 +40,12 @@
                             </div>
                             <br>
                             <br>
-                            <p><button type="submit" class="btn btn-primary">Iniciar Sesion</button></p>
-
+                            <p><button type="submit" class="btn btn-primary">Registrar Usuario</button></p>
+                            <p><a class="btn btn-danger" href="../../Login/Login.php">Regresar a Inicio</a></p>
+                            
 
                         </form>
-
+                         <div></div>
                     </div>
                 </div>     
             </div>
