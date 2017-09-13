@@ -41,7 +41,7 @@
                             <br>
                             <br>
                             <p><button type="submit" class="btn btn-primary">Registrar Usuario</button></p>
-                            <p><a class="btn btn-danger" href="../../Login/Login.php">Regresar a Inicio</a></p>
+                            <p><a class="btn btn-danger" href="../Login/Login.php">Regresar a Inicio</a></p>
                             
 
                         </form>
