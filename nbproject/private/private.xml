@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/PracticoIII/Vistas/FormLogin/FormLogin.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/Index.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/Vistas/Login/Login.php</file>
             <file>file:/C:/xampp/htdocs/PracticoIII/Controladores/LoginController.php</file>
-            <file>file:/C:/xampp/htdocs/PracticoIII/Login/Login.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/Login/Control_Session.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/bibliotecas/Footer.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/Index_vista.php</file>
+            <file>file:/C:/xampp/htdocs/PracticoIII/bibliotecas/Cabecera.php</file>
         </group>
     </open-files>
 </project-private>
